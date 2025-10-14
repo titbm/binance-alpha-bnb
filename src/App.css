@@ -1,0 +1,599 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s, color 0.3s;
+  background-color: #0d0d0d;
+  color: #ffffff;
+  font-weight: 400;
+}
+
+body:has(.app.light) {
+  background-color: #fafafa;
+  color: #1a1a1a;
+}
+
+.app {
+  min-height: 100vh;
+  padding: 20px 40px;
+  max-width: 1800px;
+  margin: 0 auto;
+  transition: all 0.3s;
+}
+
+/* Dark Mode (default) */
+.app.dark {
+  background-color: #0d0d0d;
+  color: #ffffff;
+}
+
+.app.dark .title {
+  color: #ffffff;
+}
+
+.app.dark .subtitle,
+.app.dark .update-time {
+  color: #666;
+}
+
+.app.dark .theme-toggle {
+  border-color: #333;
+  color: #999;
+}
+
+.app.dark .theme-toggle:hover {
+  border-color: #555;
+  background-color: #1a1a1a;
+}
+
+.app.dark .search-input {
+  background-color: #1a1a1a;
+  border-color: #2a2a2a;
+  color: #fff;
+}
+
+.app.dark .search-input:focus {
+  border-color: #444;
+  background-color: #1f1f1f;
+}
+
+.app.dark .reset-btn {
+  border-color: #333;
+  color: #999;
+}
+
+.app.dark .reset-btn:hover {
+  border-color: #555;
+  color: #fff;
+}
+
+.app.dark .table-container {
+  background-color: #0f0f0f;
+  border-color: #1a1a1a;
+}
+
+.app.dark .token-table thead tr,
+.app.dark .token-table tbody tr {
+  border-bottom-color: #1a1a1a;
+}
+
+.app.dark .token-table th {
+  color: #666;
+}
+
+.app.dark .token-table th:hover {
+  color: #999;
+}
+
+.app.dark .token-table tbody tr:hover {
+  background-color: #151515;
+}
+
+.app.dark .token-table td {
+  color: #ccc;
+}
+
+.app.dark .td-number {
+  color: #666;
+}
+
+.app.dark .token-name {
+  color: #fff;
+}
+
+.app.dark .token-symbol {
+  color: #666;
+}
+
+/* Light Mode */
+.app.light {
+  background-color: #fafafa;
+  color: #1a1a1a;
+}
+
+.app.light .title {
+  color: #1a1a1a;
+  font-weight: 600;
+}
+
+.app.light .subtitle,
+.app.light .update-time {
+  color: #666;
+}
+
+.app.light .theme-toggle {
+  border-color: #d0d0d0;
+  color: #666;
+}
+
+.app.light .theme-toggle:hover {
+  border-color: #999;
+  background-color: #f0f0f0;
+}
+
+.app.light .search-input {
+  background-color: #ffffff;
+  border-color: #d0d0d0;
+  color: #1a1a1a;
+}
+
+.app.light .search-input:focus {
+  border-color: #999;
+  background-color: #ffffff;
+}
+
+.app.light .search-input::placeholder {
+  color: #999;
+}
+
+.app.light .search-icon {
+  color: #666;
+}
+
+.app.light .reset-btn {
+  border-color: #d0d0d0;
+  color: #666;
+}
+
+.app.light .reset-btn:hover {
+  border-color: #999;
+  color: #1a1a1a;
+  background-color: #f0f0f0;
+}
+
+.app.light .table-container {
+  background-color: #ffffff;
+  border-color: #d0d0d0;
+}
+
+.app.light .token-table thead tr,
+.app.light .token-table tbody tr {
+  border-bottom-color: #e5e5e5;
+}
+
+.app.light .token-table th {
+  color: #666;
+  font-weight: 600;
+}
+
+.app.light .token-table th:hover {
+  color: #333;
+}
+
+.app.light .token-table tbody tr:hover {
+  background-color: #f8f8f8;
+}
+
+.app.light .token-table td {
+  color: #1a1a1a;
+}
+
+.app.light .td-number {
+  color: #999;
+}
+
+.app.light .token-name {
+  color: #1a1a1a;
+  font-weight: 500;
+}
+
+.app.light .token-symbol {
+  color: #999;
+}
+
+.app.light .bnb-logo {
+  color: #f3ba2f;
+}
+
+.app.light .cmc-link {
+  color: #3861fb;
+}
+
+.app.light .cmc-link:hover {
+  background-color: rgba(56, 97, 251, 0.1);
+  color: #2648cc;
+}
+
+.header {
+  margin-bottom: 30px;
+}
+
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.bnb-logo {
+  font-size: 32px;
+  color: #f3ba2f;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0;
+}
+
+.subtitle {
+  font-size: 0.875rem;
+  color: #666;
+  margin: 2px 0 0 0;
+}
+
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.bnb-logo {
+  font-size: 32px;
+  color: #f3ba2f;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0;
+}
+
+.subtitle {
+  font-size: 0.875rem;
+  color: #666;
+  margin: 2px 0 0 0;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.update-time {
+  font-size: 0.875rem;
+  color: #666;
+}
+
+.theme-toggle {
+  background-color: transparent;
+  border: 1px solid #333;
+  color: #999;
+  padding: 8px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 1.25rem;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+.theme-toggle:hover {
+  border-color: #555;
+  background-color: #1a1a1a;
+  transform: scale(1.1);
+}
+
+.controls {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.search-container {
+  position: relative;
+  flex: 1;
+  max-width: 400px;
+}
+
+.search-icon {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #666;
+  pointer-events: none;
+}
+
+.search-input {
+  width: 100%;
+  background-color: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  padding: 10px 12px 10px 40px;
+  color: #fff;
+  font-size: 0.875rem;
+  outline: none;
+  transition: all 0.2s;
+}
+
+.search-input:focus {
+  border-color: #444;
+  background-color: #1f1f1f;
+}
+
+.search-input::placeholder {
+  color: #666;
+}
+
+.sort-select {
+  background-color: #1a1a1a;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  padding: 10px 16px;
+  color: #fff;
+  font-size: 0.875rem;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.2s;
+}
+
+.sort-select:hover {
+  border-color: #444;
+}
+
+.reset-btn {
+  background-color: transparent;
+  border: 1px solid #333;
+  color: #999;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 0.875rem;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.reset-btn:hover {
+  border-color: #555;
+  color: #fff;
+}
+
+.loading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  gap: 20px;
+}
+
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid #333;
+  border-top-color: #f3ba2f;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.table-container {
+  overflow-x: auto;
+  overflow-y: visible;
+  cursor: grab;
+  user-select: none;
+  border-radius: 12px;
+  border: 1px solid #1a1a1a;
+  background-color: #0f0f0f;
+}
+
+.table-container:active {
+  cursor: grabbing;
+}
+
+.token-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.875rem;
+}
+
+.token-table thead tr {
+  border-bottom: 1px solid #1a1a1a;
+}
+
+.token-table th {
+  padding: 12px 12px;
+  text-align: left;
+  font-weight: 600;
+  color: #666;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  background-color: transparent;
+  cursor: pointer;
+  user-select: none;
+  transition: color 0.2s;
+}
+
+.token-table th:hover {
+  color: #999;
+}
+
+.th-number {
+  width: 40px;
+  text-align: left;
+}
+
+.th-token {
+  width: 180px;
+}
+
+.th-right {
+  text-align: right;
+  width: 120px;
+}
+
+.th-link {
+  text-align: center;
+  width: 80px;
+}
+
+.th-link .th-content {
+  justify-content: center;
+}
+
+.th-content {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 5px;
+}
+
+.th-token .th-content {
+  justify-content: flex-start;
+}
+
+.th-number .th-content {
+  justify-content: flex-start;
+}
+
+.token-table tbody tr {
+  border-bottom: 1px solid #1a1a1a;
+  transition: background-color 0.2s;
+}
+
+.token-table tbody tr:hover {
+  background-color: #151515;
+}
+
+.token-table td {
+  padding: 12px 12px;
+  color: #ccc;
+  font-weight: 500;
+}
+
+.td-number {
+  color: #666;
+  font-size: 0.875rem;
+}
+
+.td-right {
+  text-align: right;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.td-link {
+  text-align: center;
+}
+
+.cmc-link {
+  display: inline-block;
+  color: #3861fb;
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.cmc-link:hover {
+  background-color: rgba(56, 97, 251, 0.1);
+  color: #5b7cff;
+}
+
+.token-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.token-name {
+  font-weight: 600;
+  color: #fff;
+  font-size: 0.9375rem;
+}
+
+.token-symbol {
+  font-size: 0.75rem;
+  color: #666;
+  text-transform: uppercase;
+}
+
+.positive {
+  color: #16c784 !important;
+}
+
+.negative {
+  color: #ea3943 !important;
+}
+
+@media (max-width: 768px) {
+  .App {
+    padding: 10px;
+  }
+
+  .title {
+    font-size: 1.8rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .stats {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .tokens-table {
+    font-size: 0.85rem;
+  }
+
+  .tokens-table th,
+  .tokens-table td {
+    padding: 8px;
+  }
+}
