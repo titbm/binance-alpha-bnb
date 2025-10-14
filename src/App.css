@@ -11,7 +11,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   transition: background-color 0.3s, color 0.3s;
-  background-color: #0d0d0d;
+  background-color: #1a1a1a;
   color: #ffffff;
   font-weight: 400;
 }
@@ -31,7 +31,7 @@ body:has(.app.light) {
 
 /* Dark Mode (default) */
 .app.dark {
-  background-color: #0d0d0d;
+  background-color: #1a1a1a;
   color: #ffffff;
 }
 
@@ -76,13 +76,13 @@ body:has(.app.light) {
 }
 
 .app.dark .table-container {
-  background-color: #0f0f0f;
-  border-color: #1a1a1a;
+  background-color: #1a1a1a;
+  border-color: #2a2a2a;
 }
 
 .app.dark .token-table thead tr,
 .app.dark .token-table tbody tr {
-  border-bottom-color: #1a1a1a;
+  border-bottom-color: #2a2a2a;
 }
 
 .app.dark .token-table th {
@@ -94,7 +94,7 @@ body:has(.app.light) {
 }
 
 .app.dark .token-table tbody tr:hover {
-  background-color: #151515;
+  background-color: #222222;
 }
 
 .app.dark .token-table td {
