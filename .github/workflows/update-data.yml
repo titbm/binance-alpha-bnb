@@ -29,19 +29,7 @@ jobs:
           CMC_API_KEY: ${{ secrets.CMC_API_KEY }}
           COINGECKO_API_KEY: ${{ secrets.COINGECKO_API_KEY }}
         run: |
-          echo "🚀 Starting data update..."
-          
-          echo "📥 Step 1: Fetching Binance Alpha tokens from CMC..."
-          node 1-get-binance-alpha-bnb.js $CMC_API_KEY
-          
-          echo "🔍 Step 2: Verifying tokens via CoinGecko (this will take ~5 minutes)..."
-          node 2-verify-with-coingecko.js $COINGECKO_API_KEY
-          
-          echo "📋 Step 3: Copying data to public folder..."
-          mkdir -p public
-          cp verified-bnb-only-coingecko.json public/
-          
-          echo "✅ Data update completed!"
+          node scripts/update-data.js
 
       - name: Commit and push if changed
         run: |
